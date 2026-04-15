@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Exact spec colors converted to HSL */
+    --saffron: 21 100% 45%;
+    --saffron-glow: 21 100% 55%;
+    --navy: 210 55% 11%;
+    --navy-card: 210 10% 97%;
+    --navy-surface: 210 10% 93%;
+    --gold: 38 87% 38%;
+    --gold-light: 38 87% 50%;
+    --off-white: 210 33% 96%;
+
+    /* RAG Status */
+    --victory-green: 145 100% 32%;
+    --safe-amber: 42 100% 42%;
+    --danger-orange: 26 100% 45%;
+    --defeat-red: 0 100% 42%;
+    --info-blue: 200 100% 40%;
+
+    /* Hierarchy Levels */
+    --level-state: 280 67% 38%;
+    --level-constituency: 215 79% 42%;
+    --level-cluster: 199 98% 37%;
+    --level-ward: 186 100% 28%;
+    --level-mohalla: 125 46% 34%;
+    --level-page: 36 92% 52%;
+
+    /* Core tokens — LIGHT THEME */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 14%;
+
+    --primary: 21 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 40%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 38 87% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 21 100% 45%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 14%;
+    --sidebar-primary: 21 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 96%;
+    --sidebar-accent-foreground: 220 20% 14%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 21 100% 45%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .font-mono-data {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-saffron { color: hsl(var(--saffron)); }
+  .text-gold { color: hsl(var(--gold-light)); }
+  .text-victory { color: hsl(var(--victory-green)); }
+  .text-danger { color: hsl(var(--defeat-red)); }
+  .text-safe { color: hsl(var(--safe-amber)); }
+  .text-info { color: hsl(var(--info-blue)); }
+  .text-warning { color: hsl(var(--danger-orange)); }
+
+  .bg-saffron { background-color: hsl(var(--saffron)); }
+  .bg-navy { background-color: hsl(var(--navy)); }
+  .bg-navy-card { background-color: hsl(var(--navy-card)); }
+  .bg-navy-surface { background-color: hsl(var(--navy-surface)); }
+
+  .border-saffron { border-color: hsl(var(--saffron)); }
+  .border-gold { border-color: hsl(var(--gold)); }
+
+  .gradient-saffron { background: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--gold-light))); }
+  .gradient-card { background: hsl(var(--card)); box-shadow: 0 18px 40px rgb(15 23 42 / 0.08); border: 1px solid rgba(15, 23, 42, 0.05); }
+  .surface-panel { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); box-shadow: 0 14px 32px rgb(15 23 42 / 0.05); }
+  .gradient-victory { background: linear-gradient(135deg, hsl(var(--victory-green)), hsl(160 60% 40%)); }
+  .gradient-danger { background: linear-gradient(135deg, hsl(var(--defeat-red)), hsl(var(--danger-orange))); }
+
+  .glow-saffron { box-shadow: 0 4px 14px hsl(var(--saffron) / 0.25); }
+  .glow-gold { box-shadow: 0 0 15px hsl(var(--gold) / 0.2); }
+
+  .rag-victory {
+    background-color: hsl(var(--victory-green) / 0.1);
+    color: hsl(var(--victory-green));
+    border: 1px solid hsl(var(--victory-green) / 0.25);
+  }
+  .rag-safe {
+    background-color: hsl(var(--safe-amber) / 0.1);
+    color: hsl(var(--safe-amber));
+    border: 1px solid hsl(var(--safe-amber) / 0.25);
+  }
+  .rag-danger {
+    background-color: hsl(var(--danger-orange) / 0.1);
+    color: hsl(var(--danger-orange));
+    border: 1px solid hsl(var(--danger-orange) / 0.25);
+  }
+  .rag-defeat {
+    background-color: hsl(var(--defeat-red) / 0.1);
+    color: hsl(var(--defeat-red));
+    border: 1px solid hsl(var(--defeat-red) / 0.25);
+  }
+
+  .hierarchy-state { border-left: 6px solid hsl(var(--level-state)); }
+  .hierarchy-constituency { border-left: 6px solid hsl(var(--level-constituency)); }
+  .hierarchy-cluster { border-left: 4px solid hsl(var(--level-cluster)); }
+  .hierarchy-ward { border-left: 4px solid hsl(var(--level-ward)); }
+  .hierarchy-mohalla { border-left: 3px solid hsl(var(--level-mohalla)); }
+  .hierarchy-page { border-left: 3px solid hsl(var(--level-page)); }
+
+  .skeleton-pulse {
+    @apply animate-pulse rounded;
+    background: linear-gradient(90deg, hsl(var(--navy-card)) 25%, hsl(var(--navy-surface)) 50%, hsl(var(--navy-card)) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
